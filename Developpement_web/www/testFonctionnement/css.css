@@ -1,0 +1,24 @@
+.cadre {
+	border: 2px solid grey;
+	border-radius: 6px;
+	background: linear-gradient(to left, white, grey);
+	line-height: 30px;
+	text-align: center;
+	font-size :2em; 
+	margin-top:20px;
+} 
+.cadreColle{
+	border: 2px solid grey;
+	border-radius: 6px;
+	background: linear-gradient(to left, white, grey);
+	line-height: 30px;
+	text-align: center;
+	font-size :2em; 	
+	margin-top:5px;
+}
+.vert{
+	background: linear-gradient(to left, white, green);
+}
+.rouge{
+	background: linear-gradient(to left, white, red);
+}
