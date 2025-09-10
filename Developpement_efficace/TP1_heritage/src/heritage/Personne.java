@@ -1,4 +1,3 @@
-
 package heritage;
 
 import java.util.Scanner;
@@ -18,15 +17,15 @@ public class Personne extends Individu {
     /** email par défaut */
     private static final String MAIL_DEFAUT = "inconnu@inconnu.com";
 
-    /** Numéro de tel de la personne */
+    /** Num de tel de la personne */
     private final Telephone numeroTel;
 
-    /** Adresse mail de la personne */
+    /** Mail de la personne */
     private String adresseEmail;
 
     /**
-     * Constructeur par défaut
-     * Initialise tous les attributs avec des valeurs par défaut
+     * Constructeur par défaut qui initialise tous les attributs
+     * avec des valeurs par défaut
      */
     public Personne() {
         super();
@@ -56,7 +55,7 @@ public class Personne extends Individu {
     public Personne(String leNom, String lePrenom, String leTelephone, String leMail) {
         super(leNom, lePrenom);
         numeroTel = new Telephone(leTelephone);
-        // Si l'email n'est pas valide, utiliser l'email par défaut
+        // ici si l'email n'est pas valide, on va utiliser l'email par défaut
         if (leMail == null || leMail.trim().isEmpty() || !emailValide(leMail.trim())) {
             adresseEmail = MAIL_DEFAUT;
         } else {
@@ -75,7 +74,11 @@ public class Personne extends Individu {
             return false;
         }
 
-        // Regex pour valider le format email selon les critères demandés
+        /*
+         Regex pour valider le format email selon les critères demandés
+         La méthode matches() permet de rechercher dans une chaîne de caractères
+         une correspondance avec une expression régulière et renvoie les correspondances.
+         */
         String regex = "^[a-zA-Z0-9._-]+@[a-zA-Z0-9_-]+\\.[a-zA-Z]{2,3}$";
         return email.matches(regex);
     }
@@ -98,7 +101,7 @@ public class Personne extends Individu {
         super.saisir(); // saisie nom et prénom
         numeroTel.saisir(); // saisie téléphone
 
-        // saisie de l'email avec validation
+        // saisie email avec validation
         boolean emailCorrect = false;
         do {
             System.out.print("Email ....... ? ");

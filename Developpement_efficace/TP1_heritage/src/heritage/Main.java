@@ -4,6 +4,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("=== Test complet de la classe Personne avec validation email ===\n");
         
+        // Ce n'est pas le plus rigoureux mais les tests s'opérent dans le main
         // 1. Test des constructeurs avec emails valides et invalides
         System.out.println("1. Test de validation email dans les constructeurs :\n");
         
@@ -29,7 +30,7 @@ public class Main {
         System.out.println("2. Test de différents formats d'emails valides :\n");
         
         Personne[] personnesTest = {
-            new Personne("Test1", "User", "0111111111", "user@domain.com"),
+            new Personne("Test1", "Albane", "0111111111", "albanelaborieux@gmail.com"),
             new Personne("Test2", "User", "0222222222", "user.name@site.fr"),
             new Personne("Test3", "User", "0333333333", "user_123@test-site.org"),
             new Personne("Test4", "User", "0444444444", "contact@example.co")
@@ -38,21 +39,21 @@ public class Main {
         for (int i = 0; i < personnesTest.length; i++) {
             System.out.println("Test " + (i+1) + " :");
             System.out.println("Email : " + personnesTest[i].information().split("\n")[2]);
-            System.out.println();
         }
+        System.out.println();
         
         // 3. Test de formats d'emails invalides
         System.out.println("3. Test de formats d'emails invalides (remplacés par défaut) :\n");
         
         String[] emailsInvalides = {
-            "user@", // pas de domaine
-            "@domain.com", // pas de partie locale
-            "user@domain", // pas d'extension
-            "user@domain.toolong", // extension trop longue
-            "user spaces@domain.com", // espaces
-            "user@domain..com", // double point
-            "user@@domain.com", // double @
-            "user@domain.c" // extension trop courte
+            "gabin@", // pas de domaine
+            "@gmail.com", // pas de partie locale
+            "gabin@gmail", // pas d'extension
+            "gabin@gmail.troplongue", // extension trop longue
+            "gabin laborieux@domain.com", // espaces
+            "gabin@gmail..com", // double point
+            "gabin@@laborieux.com", // double @
+            "gabin@gmail.c" // extension trop courte
         };
         
         for (int i = 0; i < emailsInvalides.length; i++) {
@@ -62,19 +63,19 @@ public class Main {
         }
         System.out.println();
         
-        // 4. Test interactif de saisie avec validation
+        // 4) Test interactif de saisie avec validation
         System.out.println("4. Test interactif de saisie avec validation email :\n");
         System.out.println("Vous allez pouvoir tester la saisie avec validation.");
         System.out.println("Essayez d'abord un email invalide, puis un valide.\n");
         
         Personne personneInteractive = new Personne();
-        personneInteractive.saisir();
+        personneInteractive.saisir(); //appel de la méthode
         
         System.out.println("\n--- Personne après saisie interactive ---");
         personneInteractive.afficher();
         System.out.println();
         
-        // 5. Test de la méthode information()
+        // 5) Test de la méthode information()
         System.out.println("5. Test de la méthode information() :\n");
         
         System.out.println("Information personne avec email valide :");
