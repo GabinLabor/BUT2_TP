@@ -10,12 +10,13 @@ public class PileEntier {
     /** Capacité par défaut de la pile */
     private static final int CAPACITE_DEFAUT = 10;
 
-    /** Tableau contenant les éléments de la pile */
+    /** Tableau d'entiers contenant les éléments de la pile */
     private int[] elements;
 
     /** Capacité maximale de la pile */
     private final int capacite;
 
+    /** Index du sommet de la pile (sera à -1 si pile vide) */
     private int sommetIndex;
 
     /**
@@ -25,13 +26,6 @@ public class PileEntier {
     public PileEntier() {
         this(CAPACITE_DEFAUT);
     }
-
-
-
-
-
-
-
 
 
 
