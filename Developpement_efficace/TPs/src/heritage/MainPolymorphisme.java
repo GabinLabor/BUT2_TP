@@ -1,8 +1,10 @@
-/* package heritage;
+/*
+package heritage;
+
 
 import java.util.Scanner;
 
- *
+**
  * Classe Main pour démontrer le polymorphisme avec Individu et Personne
  *
 public class Main {
@@ -62,6 +64,8 @@ public class Main {
 }
 
 */
+
+
 
 package heritage;
 
