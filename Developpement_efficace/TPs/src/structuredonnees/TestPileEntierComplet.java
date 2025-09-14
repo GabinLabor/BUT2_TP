@@ -18,6 +18,56 @@ package structuredonnees;
 public class TestPileEntierComplet {
 
     /**
+     * Test simple selon les étapes du sujet (Questions 2 et 3)
+     */
+    private static void testSimpleDuSujet() {
+        System.out.println("=== TESTS SIMPLES DU SUJET ===\n");
+        testSimpleEtapes();
+        System.out.println("=== FIN TESTS SIMPLES ===\n");
+    }
+
+        /**
+         * Test simple selon les 11 étapes de la question 2 du TP
+         */
+        private static void testSimpleEtapes() {
+            try {
+                // Étapes 1-2 : Créer pile de capacité 5 et vérifier qu'elle est vide
+                PileEntier pile = new PileEntier(5);
+                System.out.println("1-2. Pile créée, est vide : " + pile.estVide());
+
+                // Étapes 3-4 : Empiler 3 entiers et vérifier que pile n'est pas vide
+                pile.empiler(10);
+                pile.empiler(20);
+                pile.empiler(30);
+                System.out.println("3-4. Après empilage, est vide : " + pile.estVide());
+
+                // Étape 5 : Afficher valeur au sommet
+                System.out.println("5. Valeur au sommet : " + pile.sommet());
+
+                // Étape 6 : Afficher contenu
+                System.out.println("6. Contenu : " + pile);
+
+                // Étape 7-8 : Dépiler et afficher
+                pile.depiler();
+                System.out.println("7-8. Après dépilage : " + pile);
+
+                // Étape 9-10 : Empiler 3 entiers et vérifier si pleine
+                pile.empiler(40);
+                pile.empiler(50);
+                pile.empiler(60);
+                System.out.println("9-10. Pile pleine : " + pile.estPleine());
+
+                // Étape 11 : Empiler dans pile pleine (doit lever exception)
+                pile.empiler(70);
+
+            } catch (IllegalStateException e) {
+                System.out.println("11. Exception attrapée : pile pleine");
+            } catch (Exception e) {
+                System.out.println("Erreur générale : " + e.getMessage());
+            }
+        }
+
+    /**
      * Vérifie que la pile argument est vide. Un message affiche le résultat
      * du test
      * @param p  pile supposée être vide
@@ -221,6 +271,7 @@ public class TestPileEntierComplet {
      */
     public static void main(String[] args) {
 
+        testSimpleDuSujet();
         // test des méthodes sans lever les exceptions
         testSansException();
 

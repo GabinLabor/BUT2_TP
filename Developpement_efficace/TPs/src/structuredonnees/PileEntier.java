@@ -166,12 +166,12 @@ public class PileEntier {
 
         PileEntier autre = (PileEntier) obj;
 
-        // Les piles doivent avoir la même taille
-        if (this.taille != autre.taille) {
+        // Les piles doivent avoir la même taille et la même capacité (!??)
+        if (this.taille != autre.taille || this.element.length != autre.element.length) {
             return false;
         }
 
-        // Les éléments doivent être identiques dans le même ordre
+        // les éléments doivent être identiques dans le même ordre
         for (int i = 0; i < taille; i++) {
             if (this.element[i] != autre.element[i]) {
                 return false;
