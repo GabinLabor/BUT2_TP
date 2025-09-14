@@ -2,7 +2,8 @@
  * Telephone.java                                               10/15
  */
 
-package pile;
+package structuredonnees;
+
 import java.util.Scanner;
 
 /**
