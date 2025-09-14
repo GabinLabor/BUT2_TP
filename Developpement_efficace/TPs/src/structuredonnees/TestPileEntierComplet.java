@@ -5,7 +5,7 @@
  * tests de la classe Pile
  * TestPileEntierComplet.java                                                09/22
  */
-package pile;
+package structuredonnees;
 
 /**
  * Tests de base pour la classe Pile.
@@ -102,7 +102,7 @@ public class TestPileEntierComplet {
             for (int n = 1; n <= 5; n++) {
                 p.empiler(n);
             }
-            System.out  .println("\n\n  ===> Tests sur des piles non vides\n");
+            System.out.println("\n\n  ===> Tests sur des piles non vides\n");
             System.out.println("La pile p contient-elle les entiers de 1 à 5 ?\n"
                     + p + "       => "
                     + (p.toString().equals(
