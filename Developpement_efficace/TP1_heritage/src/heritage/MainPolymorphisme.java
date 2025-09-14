@@ -1,3 +1,67 @@
+/* package heritage;
+
+import java.util.Scanner;
+
+ *
+ * Classe Main pour démontrer le polymorphisme avec Individu et Personne
+ *
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("=== Démonstration du Polymorphisme ===\n");
+
+        // Tableau polymorph qui peut contenir des Individu et des Personne
+        // car personne hérite de Individu
+        Individu[] tableau = new Individu[5];
+
+        // remplissage du tableau
+        for (int i = 0; i < tableau.length; i++) {
+            System.out.println("--- Élément " + (i + 1) + " ---");
+            System.out.print("Individu (I) ou Personne (P) ? ");
+            String choix = scanner.nextLine().toUpperCase();
+
+            if (choix.equals("I")) {
+                tableau[i] = new Individu();
+            } else {
+                tableau[i] = new Personne();
+            }
+
+            tableau[i].saisir();
+            System.out.println();
+        }
+
+        // Affichage du contenu
+        System.out.println("=== Contenu du tableau ===\n");
+
+        for (int i = 0; i < tableau.length; i++) {
+            System.out.println("--- Élément " + (i + 1) + " ---");
+            tableau[i].afficher(); // appel polymorphe
+            System.out.println();
+        }
+
+        // Comptage des types
+        int nbIndividus = 0;
+        int nbPersonnes = 0;
+
+        for (int i = 0; i < tableau.length; i++) {
+            if (tableau[i] instanceof Personne) {
+                nbPersonnes++;
+            } else {
+                nbIndividus++;
+            }
+        }
+
+        System.out.println("Résultats :");
+        System.out.println("Individus : " + nbIndividus);
+        System.out.println("Personnes : " + nbPersonnes);
+
+        scanner.close();
+    }
+}
+
+*/
 
 package heritage;
 
@@ -14,7 +78,7 @@ public class MainPolymorphisme {
         System.out.println("=== Démonstration du Polymorphisme ===\n");
 
         // Déclaration d'un tableau de type Individu pouvant contenir
-        // des instances d'Individu et de Personne (polymorphisme)
+        // des instances d'Individu et de Personne (polymorphisme) car Personne hérite de Individu
         Individu[] tableau = new Individu[5];
 
         // Remplissage du tableau
@@ -28,6 +92,7 @@ public class MainPolymorphisme {
                 choix = scanner.nextLine().trim().toUpperCase();
             }
 
+            // on crée des instances dynamiques
             if (choix.equals("I")) {
                 // Création d'une instance d'Individu
                 System.out.println("Création d'un Individu");
@@ -49,7 +114,7 @@ public class MainPolymorphisme {
         for (int i = 0; i < tableau.length; i++) {
             System.out.println("--- Élément " + (i + 1) + " ---");
 
-            // Polymorphisme en action :
+            // Polymorphisme en action car :
             // - Si tableau[i] contient un Individu -> méthode afficher() d'Individu
             // - Si tableau[i] contient une Personne -> méthode afficher() de Personne
             tableau[i].afficher();
