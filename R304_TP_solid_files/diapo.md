@@ -1,0 +1,1 @@
+01101010 -- code source de diapo.md
