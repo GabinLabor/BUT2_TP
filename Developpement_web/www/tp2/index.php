@@ -76,7 +76,7 @@
 			$url = $destinations[$cle]; // on récupère et associe l'url correspondant à la ville
 
 			// affichage résultat avec un lien blank !
-			echo "Mes prochaines vacances seront à <a href='$url' target='_blank'>$cle</a> !";
+			echo "Mes prochaines vacances seront à <a href='$url' target='_blank'>$cle</a> !"; // tittle à ajouter TODO
 		?>
 
 		<br><br>
@@ -87,12 +87,17 @@
 			<table class="tableau">
 			<tr>
 				<th>X</th> <!-- premiere cellule de la table row, juste un X -->
-				<?php for ($j = 1; $j <= 9; $j++): //boucle for pour afficher les entetes de 1 à 9 ?>
-				<th><?= $j ?></th>
-				<?php endfor; ?>
+
+				<?php
+					for ($j = 1; $j <= 9; $j++): //boucle for pour afficher les entetes de 1 à 9
+						echo"<th>".$j."</th>"; // TODO revoir la modif
+					endfor;
+				?>
+
 			</tr>
 
-			<?php for ($i = 1; $i <= 9; $i++): // boucle externe pr chq ligne du tableau?>
+			<?php
+				for ($i = 1; $i <= 9; $i++): // boucle externe pr chq ligne du tableau?>
 				<tr>
 				<th><?= $i ?></th> <!-- en-tête de ligne -->
 				<?php for ($j = 1; $j <= 9; $j++): // boucle j à l'intérieur pour chaque colonne
