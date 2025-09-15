@@ -420,10 +420,10 @@ public class TestMatricePartie1 {
      */
     public static void main(String[] args) {
         System.out.println("TEST DES METHODES DE LA CLASSE MATRICE CREUSE\n\n");
-        // testConstructeur();
+        testConstructeur();
         // testAfficherSetValeur();
         // testSetValeur();
-        testGetValeur();
+        // testGetValeur();
 
     }
 
