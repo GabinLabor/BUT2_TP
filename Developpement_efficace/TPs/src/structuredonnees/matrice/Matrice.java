@@ -57,7 +57,7 @@ public class Matrice {
     public int getNbColonnes() { return nbColonnes; }
 
     // arrivé ici les tests ne passaient pas j'ai du changé les noms de la classe et ses méthodes
-    // pour me conformer aux tests MatriceCreuse > Matrice
+    // pour me conformer aux tests MatriceCreuse > Matrice puis je suis passé à Q3
 
     /** Modifie la valeur en (ligne, colonne). Ne stocke pas de 0. */
     public void setValeur(int ligne, int colonne, double valeur) {

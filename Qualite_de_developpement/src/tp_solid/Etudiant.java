@@ -159,25 +159,9 @@ public class    Etudiant {
         }
     }
 
-	/* public void afficherPlanning() {
+	public void afficherPlanning() {
 		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-		String nomFormation;
-		switch (this.getFormation().getParcours()) {
-		case "INFO" :
-			nomFormation = "Informatique";
-			break;
-		case "GEA":
-			nomFormation = "Gestion des Entreprises et des Administrations";
-			break;
-		case "QLIO":
-			nomFormation = "Qualité, Logistique Industrielle et Organisation";
-			break;
-        case "INFOCOM":
-            nomFormation = "Information et communication";
-            break;
-		default:
-			nomFormation = "Formation inconnue'";
-		}		
+		String nomFormation = formation.getNom();
 
 		System.out.println("Planning de " + this.getNom() + " (" + nomFormation + ")");
 		System.out.println("--------");
@@ -187,6 +171,5 @@ public class    Etudiant {
 			System.out.println("+ " + projet.getNom() + " (le " + df.format(date) + ")");
 		}
 	}
-	*/
 
 }

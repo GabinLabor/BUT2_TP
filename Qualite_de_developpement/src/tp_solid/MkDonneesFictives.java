@@ -26,7 +26,7 @@ public class MkDonneesFictives {
 	 */
 	public static Etudiant getDonnees() {
 		// Données fictives
-		Formation formationInfo = new Formation("INFO", 2025);
+		Formation formationInfo = new ParcoursInfo(2025);
 		Etudiant etu = new Etudiant(123456, "Alice Ébobe", formationInfo);
 		Projet projet1 = new Projet("Projet Web");
 		Projet projet2 = new Projet("Archical");
