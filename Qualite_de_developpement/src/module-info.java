@@ -7,4 +7,5 @@
  * 
  */
 module Re_TP1 {
+    requires Re_TP1;
 }

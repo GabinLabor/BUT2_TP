@@ -7,7 +7,10 @@ package tp_solid.document.compterendu;
 
 import tp_solid.document.Document;
 
-public class Soutenance implements CompteRendu {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Soutenance extends AbstractCompteRenduDiapo {
 	
 	private Document diaporama;
 	private Document texte;
@@ -19,8 +22,6 @@ public class Soutenance implements CompteRendu {
 		this.diaporama = diaporama;
 		this.texte = texte;
 	}
-
-	
 
 
 	@Override
@@ -43,8 +44,6 @@ public class Soutenance implements CompteRendu {
 	public void setTexte(Document texte) {
 		this.texte = texte;
 	}
-
-
 
 
 }
