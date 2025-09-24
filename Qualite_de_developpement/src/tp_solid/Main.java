@@ -7,6 +7,7 @@ package tp_solid;
 import java.io.IOException;
 
 import tp_solid.document.compterendu.CompteRendu;
+import tp_solid.document.compterendu.CompteRenduDiapo;
 import tp_solid.document.compterendu.Soutenance;
 
 /**
@@ -73,14 +74,25 @@ public class Main {
 		// Ouverture et affichage des textes et diaporamas des comptes rendus
 		for (CompteRendu cptRendu : projet1.getCompteRendus()) {
 			try {
+
+                for(Document doc : cptRendu.getAllDocs()) {
+                    doc.open();
+                    System.out.println(doc.getFilename());
+                    System.out.println("\t" + new String(doc.getRawData()))
+                }
+
+                /* Ancien code
 				cptRendu.getTexte().open();
 				System.out.println("Compte-rendu '" + cptRendu.getTexte().getFilename() + "' (type = " + cptRendu.getTexte().getType() + ")");
 				System.out.println("\t" + new String(cptRendu.getTexte().getRawData()));
 				if (cptRendu instanceof Soutenance) {
+
+                    CompteRenduDiapo cptbis  = (Soutenance) cptRendu; // mauvaise solution, on perd tout le typage statique
+
 					cptRendu.getDiaporama().open();
 					System.out.println("Compte-rendu '" + cptRendu.getDiaporama().getFilename() + "' (type = " + cptRendu.getDiaporama().getType() + ")");
 					System.out.println("\t" + new String(cptRendu.getDiaporama().getRawData()));
-				}
+				} */
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

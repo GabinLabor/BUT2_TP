@@ -6,8 +6,10 @@
 package tp_solid.document.compterendu;
 
 import tp_solid.document.Document;
+import java.util.List;
+import java.util.ArrayList;
 
-public class RevueDeSprint implements CompteRendu {
+public class RevueDeSprint extends AbstractCompteRenduDiapo {
 	
 	private Document diaporama;
 	private Document texte;
@@ -20,7 +22,6 @@ public class RevueDeSprint implements CompteRendu {
 		this.texte = texte;
 	}
 
-	
 
 
 	@Override
@@ -43,8 +44,6 @@ public class RevueDeSprint implements CompteRendu {
 	public void setTexte(Document texte) {
 		this.texte = texte;
 	}
-
-
 
 
 }
