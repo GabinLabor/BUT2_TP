@@ -3,9 +3,9 @@
 
 DELIMITER //
 
+DROP FUNCTION IF EXISTS cree_facture(client INT) -- supprimer la table si existante
 CREATE FUNCTION cree_facture(client INT)
 RETURNS INT
-DETERMINISTIC
 BEGIN
     DECLARE prefix_yyyymm INT;
     DECLARE dernierdumois INT;
@@ -16,9 +16,7 @@ BEGIN
     SET prefix_yyyymm = DATE_FORMAT(CURDATE(), '%Y%m');
 
     -- on cherche le plus grand numéro de facture du mois en cours dans NO_FCT
-    SELECT MAX(NO_FCT)
-		INTO dernierdumois
-		FROM factures_entetes
+    SELECT MAX(NO_FCT) INTO dernierdumois FROM factures_entetes
     WHERE NO_FCT BETWEEN prefix_yyyymm * 1000 AND prefix_yyyymm * 1000 + 999; -- entre XXXX0000 et 999 le max du mois courant
 
     -- si x = null ça renvoi y sinon x
@@ -31,6 +29,7 @@ BEGIN
 END//
 
 DELIMITER ;
+
 
 /*
 -- Exemples : générer plusieurs entêtes pour les clients 1 et 2
@@ -49,65 +48,44 @@ DELIMITER //
 //
 DELIMITER ;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 -- Question 4 - Génération d’un code-barres EAN-13 et mise à jour dans stockprix
 
 DELIMITER //
 
 CREATE FUNCTION genereCodeBarre()
 RETURNS VARCHAR(13)
-MODIFIES SQL DATA
 BEGIN
-    DECLARE prefix CHAR(7);
-    DECLARE next_num INT;
+    DECLARE prefixFrance CHAR(7);
+    DECLARE intermediaire INT;
     DECLARE base12 CHAR(12);
+
+
+    SELECT CONTENU_A INTO prefixFrance FROM parametres WHERE ID = 'DEB_GENCODE';
+
+    SELECT IFNULL(CONTENU_N, 0) + 1 INTO intermediaire FROM parametres WHERE ID = 'LAST_GENCODE';
+
+    -- substring typage dynamique on peut addittionner
+
+    END //
+DELIMITER ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MODIFIES SQL DATA
+
     DECLARE sum_odd INT DEFAULT 0;   -- positions 1,3,5,7,9,11
     DECLARE sum_even INT DEFAULT 0;  -- positions 2,4,6,8,10,12
     DECLARE digit INT;
