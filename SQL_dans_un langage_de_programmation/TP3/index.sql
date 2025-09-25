@@ -12,19 +12,21 @@ BEGIN
     DECLARE prog INT;
     DECLARE numero_facture INT;
 
+    -- on isole le format de la date AAAAMM
     SET prefix_yyyymm = DATE_FORMAT(CURDATE(), '%Y%m');
 
+    -- on cherche le plus grand numéro de facture du mois en cours dans NO_FCT
     SELECT MAX(NO_FCT)
 		INTO dernierdumois
 		FROM factures_entetes
-     WHERE NO_FCT BETWEEN prefix_yyyymm * 1000 AND prefix_yyyymm * 1000 + 999;
+    WHERE NO_FCT BETWEEN prefix_yyyymm * 1000 AND prefix_yyyymm * 1000 + 999; -- entre XXXX0000 et 999 le max du mois courant
 
+    -- si x = null ça renvoi y sinon x
     SET prog = IFNULL(dernierdumois MOD 1000, 0) + 1;
+    -- on concatène avec le tampon
     SET numero_facture = prefix_yyyymm * 1000 + prog;
 
-    INSERT INTO factures_entetes (NO_FCT, CLIENT, DATE_FCT)
-    VALUES (numero_facture, client, CURDATE());
-
+    INSERT INTO factures_entetes (NO_FCT, CLIENT, DATE_FCT) VALUES (numero_facture, client, CURDATE());
     RETURN numero_facture;
 END//
 
@@ -42,9 +44,57 @@ SELECT cree_facture(2) AS no_fct_client2; //
 
 DELIMITER //
 	UPDATE stockprix
+
 	SET CODE_BARRE = NULL;
 //
 DELIMITER ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 -- Question 4 - Génération d’un code-barres EAN-13 et mise à jour dans stockprix
