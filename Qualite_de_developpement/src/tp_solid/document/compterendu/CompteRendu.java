@@ -5,8 +5,9 @@
 
 package tp_solid.document.compterendu;
 
-import tp_solid.document.Document;
 import java.util.List;
+
+import tp_solid.document.DocumentStandard;
 
 public interface CompteRendu {
 	
@@ -14,11 +15,12 @@ public interface CompteRendu {
 	 * obtenir le texte associé au compte-rendu
 	 * @return Le texte
 	 */
-	Document getTexte();
-
-    /**
-     * @return Liste de tous les documents disponibles (p. ex texte, diapo, etc.)
-     */
-    List<Document> getAllDocs();
+	DocumentStandard getTexte();
+	
+	/**
+	 * Obtenir tous les documents associés au compte-rendu (p.ex. texte, diaporama, etc.)
+	 * @return Liste des documents
+	 */
+	List<DocumentStandard> getAllDocuments();
 
 }

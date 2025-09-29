@@ -5,45 +5,17 @@
 
 package tp_solid.document.compterendu;
 
-import tp_solid.document.Document;
-import java.util.List;
-import java.util.ArrayList;
+import tp_solid.document.DocumentStandard;
 
-public class RevueDeSprint extends AbstractCompteRenduDiapo {
-	
-	private Document diaporama;
-	private Document texte;
-	
-	
+public class RevueDeSprint extends AbstractCompteRenduAvecDiapo {
 
-	public RevueDeSprint(Document diaporama, Document texte) {
-		super();
-		this.diaporama = diaporama;
-		this.texte = texte;
-	}
-
-
-
-	@Override
-	public Document getTexte() {
-		return texte;
+	/**
+	 - Crée une nouvelle RevueDeSprint
+	 * @param diaporama
+	 * @param texte
+	 */
+	public RevueDeSprint(DocumentStandard diaporama, DocumentStandard texte) {
+		super(diaporama, texte);
 	}
 	
-	
-	public void setDiaporama(Document diaporama) {
-		this.diaporama = diaporama;
-	}
-
-
-	@Override
-	public Document getDiaporama() {
-		return diaporama;
-	}
-
-
-	public void setTexte(Document texte) {
-		this.texte = texte;
-	}
-
-
 }

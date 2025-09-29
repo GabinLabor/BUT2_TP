@@ -8,11 +8,13 @@ import java.io.IOException;
 import java.util.List;
 
 import tp_solid.document.Document;
+import tp_solid.document.DocumentStandard;
+import tp_solid.document.WritableDocument;
 
 /**
  * Exportation de documents en mode 'xml'
  */
-public class ExportXML {
+public class ExportXML implements Export {
 	
 	private String encoding = "UTF-8";
 	private String xmlVersion = "1.0";
@@ -52,14 +54,9 @@ public class ExportXML {
 	
 	
 
-	/**
-	 * Exporte un ensemble de documents en mode XML
-	 * @param documents documents à exporter
-	 * filename Fichier d'export
-	 * @throws IOException 
-	 */
+	@Override
 	public void exporter(List<Document> documents, String filename) throws IOException {
-		Document docExport = new Document(filename, "txt");
+		WritableDocument docExport = new DocumentStandard(filename, "txt");
 		String contenu = "<?xml version=\"" + xmlVersion + "\" encoding=\"" + encoding + "\"?>\n<documents>\n";
 		for (Document doc : documents) {
 			doc.open();

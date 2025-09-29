@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import tp_solid.document.Document;
-import tp_solid.document.DocumentSysteme;
+import tp_solid.document.WritableDocument;
 import tp_solid.document.compterendu.CompteRendu;
-import tp_solid.document.export.ExportXML;
+import tp_solid.document.export.Export;
 
 /**
  * Projet étudiant
@@ -22,18 +22,19 @@ public class Projet {
 	private List<Document> documents;
 	private List<CompteRendu> compteRendus;
 	private List<Etudiant> etudiants;
-	private ExportXML export = new ExportXML();
+	private Export export;
 
 	/**
 	 - Crée un nouveau projet
 	 * @param nom Nom du projet
 	 */
-	public Projet(String nom) {
+	public Projet(String nom, Export export) {
 		super();
 		this.nom = nom;
 		this.documents = new ArrayList<Document>();	
 		this.compteRendus = new ArrayList<CompteRendu>();	
 		this.etudiants = new ArrayList<Etudiant>();	
+		this.export = export;
 	}
 
 	
@@ -150,8 +151,8 @@ public class Projet {
 	 */
 	public void saveAllDocs() throws IOException {
 		for (Document doc: documents) {
-			if (!(doc instanceof DocumentSysteme)) {
-				doc.save();
+			if (doc instanceof WritableDocument) {
+				((WritableDocument) doc).save();
 				System.out.println("Enregistrement : " + doc.getFilename());
 			}
 		}
@@ -167,20 +168,4 @@ public class Projet {
 	}
 	
 	
-	/**
-	 * Obtenir l'encodage de caractères pour l'export
-	 * @return Encodage
-	 */
-	public String getExportEncoding() {
-		return export.getEncoding();
-	}
-	
-	/**
-	 * Obtenir la version d'XML pour l'exportation
-	 * @return Version XML
-	 */
-	public String getExportXmlVersion() {
-		return export.getXmlVersion();
-	}
-
 }

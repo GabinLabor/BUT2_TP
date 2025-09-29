@@ -8,11 +8,12 @@ import java.io.IOException;
 import java.util.List;
 
 import tp_solid.document.Document;
+import tp_solid.document.DocumentStandard;
 
 /**
  * Exporation du document en mode 'txt'
  */
-public class ExportTXT {
+public class ExportTXT implements Export {
 	
 	private String encoding = "UTF-8";
 	
@@ -33,14 +34,9 @@ public class ExportTXT {
 		this.encoding = encoding;
 	}
 
-	/**
-	 * Exporte un ensemble de documents en mode txt
-	 * @param documents documents à exporter
-	 * filename Fichier d'export
-	 * @throws IOException 
-	 */
+	@Override
 	public void exporter(List<Document> documents, String filename) throws IOException {
-		Document docExport = new Document(filename, "txt");
+		DocumentStandard docExport = new DocumentStandard(filename, "txt");
 		String contenu = "";
 		for (Document doc : documents) {
 			doc.open();

@@ -4,21 +4,25 @@
  */
 package tp_solid;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import tp_solid.formation.Formation;
 import tp_solid.util.Pair;
 
 
-public class    Etudiant {
+
+
+public class Etudiant {
 
 	private String nom;
 	private int numeroEtu;
 	private Formation formation;
 	private List<Projet> projets;
 	private List<Pair<Date,Projet>> joursTravailles;
+
+
 
 
 	/**
@@ -36,6 +40,8 @@ public class    Etudiant {
 	}
 
 
+
+
 	/**
 	 * Obtenir le nom
 	 * @return le nom
@@ -43,6 +49,8 @@ public class    Etudiant {
 	public String getNom() {
 		return nom;
 	}
+
+
 
 
 	/**
@@ -54,6 +62,8 @@ public class    Etudiant {
 	}
 
 
+
+
 	/**
 	 * Obtenir le numeroEtu
 	 * @return le numeroEtu
@@ -61,6 +71,8 @@ public class    Etudiant {
 	public int getNumeroEtu() {
 		return numeroEtu;
 	}
+
+
 
 
 	/**
@@ -72,6 +84,8 @@ public class    Etudiant {
 	}
 
 
+
+
 	/**
 	 * Obtenir la formation
 	 * @return la formation
@@ -80,6 +94,9 @@ public class    Etudiant {
 		return formation;
 	}
 
+
+
+
 	/**
 	 * Modifier la formation
 	 * @param formation la nouvelle formation
@@ -87,6 +104,8 @@ public class    Etudiant {
 	public void setFormation(Formation formation) {
 		this.formation = formation;
 	}
+
+
 
 
 	/**
@@ -98,6 +117,8 @@ public class    Etudiant {
 	}
 
 
+
+
 	/**
 	 * Obtenir le planning de l'étudiant
 	 * @return le planning
@@ -107,11 +128,13 @@ public class    Etudiant {
 	}
 
 
+
+
 	/**
 	 * Ajouter un nouveau projet
 	 * @param projet nouveau projet
 	 */
-	protected void addProjet(Projet projet) {
+	public void addProjet(Projet projet) {
 		this.projets.add(projet);
 	}
 
@@ -120,9 +143,12 @@ public class    Etudiant {
 	 * @param projet Projet à supprimer
 	 * @return Vrai ssi le projet était présent avant suppression
 	 */
-	protected boolean removeProjet(Projet projet) {
+	public boolean removeProjet(Projet projet) {
 		return this.projets.remove(projet);
 	}
+
+
+
 
 
 	/**
@@ -136,40 +162,5 @@ public class    Etudiant {
 
 
 
-
-	/**
-	 * Affiche le planning de l'étudiant dans la console selon le format voulu
-     * @param format "txt" pour format texte, "xml" pour format XML
-     * @throws IllegalArgumentException si le format n'est ni "txt" ni "xml"
-	 */
-    public void afficherPlanning(String format) {
-        if (!format.equals("txt")) && !format.equals("xml")) {
-            throw new IllegalArgumentException("Format inconnu");
-        }
-
-        if (format.equals("txt")) {
-            afficherPlanning();
-        } else {
-            System.out.println("<planning>");
-            System.out.println("<etudiant nom=\"" + this.getNom() + "\" />");
-
-            for (Pair<Date,Projet> pair : joursTravailles) {
-
-            }
-        }
-    }
-
-	public void afficherPlanning() {
-		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-		String nomFormation = formation.getNom();
-
-		System.out.println("Planning de " + this.getNom() + " (" + nomFormation + ")");
-		System.out.println("--------");
-		for (Pair<Date,Projet> pair : joursTravailles) {
-			Date date = pair.getL();
-			Projet projet = pair.getR();
-			System.out.println("+ " + projet.getNom() + " (le " + df.format(date) + ")");
-		}
-	}
 
 }

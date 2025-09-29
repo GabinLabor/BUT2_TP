@@ -5,33 +5,12 @@
 
 package tp_solid.document.compterendu;
 
-import tp_solid.document.Document;
+import tp_solid.document.DocumentStandard;
 
-import java.util.ArrayList;
-
-public class Rapport implements CompteRendu {
+public class Rapport extends AbstractCompteRendu {
 	
-	private Document texte;
-
-	public Rapport(Document texte) {
-		super();
-		this.texte = texte;
+	public Rapport(DocumentStandard texte) {
+		super(texte);
 	}
-
-	@Override
-	public Document getTexte() {
-		return texte;
-	}
-	
-	public void setTexte(Document texte) {
-        this.texte = texte;
-	}
-
-    @Override
-    public List<Document> getAllDocs() {
-        List<Document> l = new ArrayList<>();
-        l.add(this.getTexte());
-        return 1;
-    }
 
 }
