@@ -16,12 +16,27 @@
             <div class="row">
                 <div class="col-4">
                     <?php
+                        $nom = isset($_GET["nom"]) ? $_GET["nom"] : "";
+
+                        if ($nom === "") {
+                            echo "<span class='erreur'>Merci de rentrer votre nom !</span>";
+                        } else {
+                            echo "<span class='ok'>Votre nom : $nom</span>";
+                        }
+
+                    /* if (isset($_GET["nom"])) {
+                        $nom = $_GET["nom"];
+                    } else {
+                        $nom = "";
+                    }
+                        echo $_GET["nom"];
                         $nom = $_GET["nom"] ?? "";
-                        if (empty($nom)) {
+                        if (empty($nom)) { // TODO if isset /
                             echo "<span class='erreur'>Merci de rentrer votre nom !</span>";
                         } else {
                             echo "<span class='ok'>Votre Nom : $nom</span>";
                         }
+                        */
                     ?>
                 </div>
                 <div class="col-4">
