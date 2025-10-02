@@ -43,12 +43,94 @@ SELECT cree_facture(2) AS no_fct_client2; //
 
 DELIMITER //
 	UPDATE stockprix
-
 	SET CODE_BARRE = NULL;
 //
 DELIMITER ;
 
 -- Question 4 - Génération d’un code-barres EAN-13 et mise à jour dans stockprix
+DELIMITER //
+CREATE FUNCTION genereCodeBarre()
+    RETURNS VARCHAR(13)
+BEGIN
+    DECLARE prefix        VARCHAR(7);
+    DECLARE v_last        INT;
+    DECLARE v_new         INT;
+    DECLARE code12        VARCHAR(12);
+    DECLARE code13        VARCHAR(13);
+    DECLARE i             INT DEFAULT 1;
+    DECLARE somme_pair    INT DEFAULT 0;  -- positions 2,4,6,8,10,12 du code
+    DECLARE somme_impair  INT DEFAULT 0;  --      "    1,3,5,7,9,11
+    DECLARE cle           INT;
+
+-- 1) on lit le préfixe (DEB_GENCODE)
+SELECT contenu_a INTO prefix FROM parametres WHERE id = 'DEB_GENCODE';
+
+-- 2) Récupérer + incrémenter LAST_GENCODE
+-- chaque appel de fonction prend le prochain numéro libre
+SELECT contenu_n INTO v_last FROM parametres WHERE id = 'LAST_GENCODE';
+SET v_new = v_last + 1;
+UPDATE parametres SET contenu_n = v_new WHERE id = 'LAST_GENCODE'; -- TODO faire le update avant et le +1 après
+
+-- 3) On concatène Prefixe + numero prod : on construit les 12 premiers chiffres : 7 (prefixe) + 5 (numéro produit, zero-pad)
+    SET code12 = CONCAT(
+    prefix,
+    LPAD(v_new, 5, '0')
+);
+
+    -- 4) Somme impairs / pairs (SUBSTRING 1-indexé, aide-mémoire)
+    WHILE i <= 12 DO
+        IF MOD(i, 2) = 0 THEN
+            SET somme_pair = somme_pair + SUBSTRING(code12, i, 1); -- positions paires
+          ELSE
+            SET somme_impair = somme_impair + SUBSTRING(code12, i, 1); -- positions impaires
+        END IF;
+        SET i = i + 1;
+    END WHILE;
+
+    -- Clé EAN-13 :
+    -- On vérifie que le dernier caractère est égal à 0
+    SET cle = (10 - ((3 * somme_pair + somme_impair) MOD 10)) MOD 10; -- TODO marche dans tous les cas ?
+
+    -- 5) Retourner le code à 13 chiffres
+    SET code13 = CONCAT(code12, cle);
+RETURN code13;
+END//
+DELIMITER ;
+
+
+UPDATE stockprix
+SET CODE_BARRE = genereCodeBarre()
+WHERE CODE_BARRE IS NULL;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 
 DELIMITER //
 
@@ -69,67 +151,4 @@ BEGIN
     END //
 DELIMITER ;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-MODIFIES SQL DATA
-
-    DECLARE sum_odd INT DEFAULT 0;   -- positions 1,3,5,7,9,11
-    DECLARE sum_even INT DEFAULT 0;  -- positions 2,4,6,8,10,12
-    DECLARE digit INT;
-    DECLARE i INT DEFAULT 1;
-    DECLARE total INT;
-    DECLARE key_digit INT;
-    DECLARE code CHAR(13);
-
-    -- 1) Récupérer le préfixe fabricant/pays (7 chiffres)
-    SELECT CONTENU_A INTO prefix
-		FROM parametres
-		WHERE ID = 'DEB_GENCODE';
-
-    -- 2) Incrémenter le dernier numéro produit (5 chiffres)
-    SELECT IFNULL(CONTENU_N, 0) + 1 INTO next_num
-		FROM parametres
-		WHERE ID = 'LAST_GENCODE';
-
-    UPDATE parametres
-		SET CONTENU_N = next_num
-		WHERE ID = 'LAST_GENCODE';
-
-    -- 3) Former les 12 premiers chiffres (préfixe + produit)
-    SET base12 = CONCAT(prefix, LPAD(next_num, 5, '0'));
-
-    -- 4) Calcul de la clé EAN-13
-    WHILE i <= 12 DO
-        SET digit = CAST(SUBSTRING(base12, i, 1) AS UNSIGNED);
-        IF (i MOD 2) = 1 THEN
-            SET sum_odd = sum_odd + digit;
-        ELSE
-            SET sum_even = sum_even + digit;
-        END IF;
-        SET i = i + 1;
-    END WHILE;
-
-    SET total = sum_odd + (sum_even * 3);
-    SET key_digit = (10 - (total MOD 10)) MOD 10;
-
-    -- 5) Code barre final
-    SET code = CONCAT(base12, key_digit);
-
-    RETURN code;
-END//
-//
-
-DELIMITER ;
+*/
