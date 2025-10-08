@@ -43,7 +43,53 @@ public class Livre {
         this.doi = doi;
     }
 
-    getter
+    /**
+     * Obtenir le titre du livre
+     * @return le titre du livre
+     */
+    public String getTitre() {
+        return titre;
+    }
 
-    setter
+    /**
+     * Définir le titre du livre
+     * @return titre le titre à définir
+     */
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
+
+    /**
+     * Obtenir l'auteur du livre
+     * @return l'auteur du livre
+     */
+    public String getAuteur() {
+        return titre;
+    }
+
+    /**
+     * Définir le titre du livre
+     * @return titre le titre à définir
+     */
+    public void setAuteur(String  auteur) {
+        this.auteur = auteur;
+    }
+
+    /**
+     * Obtenir le DOI du livre
+     * @return le DOI du livre
+     */
+    public String getDoi() {
+        return titre;
+    }
+
+    /**
+     * Définir le titre du livre
+     * @return titre le titre à définir
+     */
+    public void setDoi(String Doi) {
+        this.doi = Doi;
+    }
+
+    // TODO voir dans Intellij comment générer documentation, javadoc et les constructeurs getters setters
 }
