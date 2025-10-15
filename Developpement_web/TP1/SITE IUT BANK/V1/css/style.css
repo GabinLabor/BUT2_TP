@@ -1,0 +1,78 @@
+/* Fond général : dégradé blanc -> #00B3EC */
+body {
+background: linear-gradient(#ffffff, #00B3EC);
+min-height: 100vh;
+color: #3900EC;               /* Couleur texte générale */
+font-size: 1.3rem;            /* 1.3x */
+font-weight: 700;             /* gras */
+}
+
+/* Cadres (cards/sections) : dégradé #00B3EC -> blanc + marges */
+.grad {
+background: linear-gradient(#00B3EC, #ffffff);
+margin: 2px;                  /* marge ext 2px */
+padding: 5px;                 /* marge int 5px */
+border-radius: .5rem;
+}
+
+/* h1 / h2 selon consignes */
+.hero-title {                   /* h1 visuel centré */
+color: #3900EC;
+font-size: 2rem;              /* 2x la taille normale */
+font-weight: 700;
+text-align: center;
+}
+
+h2 {
+color: #3900EC;
+font-size: 1.8rem;
+font-weight: 700;
+text-align: center;
+}
+
+/* Logo */
+.logo-bank {
+display: block;
+margin: 0 auto;
+padding: 5px;
+height: 120px;
+border-radius: 5px;
+}
+
+/* Liens */
+a { color: #AF00EC; }
+a:visited { color: #EC00B3; }
+
+/* Images : zoom au survol */
+.img-zoom { transition: transform .2s ease-in-out; }
+.img-zoom:hover { transform: scale(1.2); }
+
+/* Bouton principal un peu épais */
+.btn-primary { font-weight: 700; }
+.form-label { font-weight: 700; color: #3900EC; }
+
+/* Pied de page */
+footer h2 { margin-bottom: .5rem; }
+.iut-logo { width: 100px; }
+
+/* Ajustements des espacements pour coller au rendu */
+.section-welcome p { margin-bottom: 1rem; }
+
+
+
+
+
+
+
+
+
+
+/*
+.main-container {
+    margin: auto;
+    padding: 20px;
+    background-color: blue;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+*/
