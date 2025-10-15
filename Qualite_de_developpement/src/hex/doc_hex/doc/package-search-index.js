@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html","k":"18"},{"l":"hex"},{"l":"hex.affich"},{"l":"hex.ia"},{"l":"util"}];updateSearchResults();

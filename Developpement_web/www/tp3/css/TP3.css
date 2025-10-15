@@ -1,0 +1,27 @@
+/* Espacement des lignes bootstrap */
+.row + .row { margin-top: 1rem; }
+
+/* commun */
+.ok,
+.erreur {
+    display: block;
+    padding: .75rem 1rem;
+    border: 1px solid transparent;
+    border-radius: .5rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Vert pour ok */
+.ok {
+    color: #0f5132;
+    background: #d1e7dd;
+    border-color: #badbcc;
+}
+
+/* Rouge pour erreur */
+.erreur {
+    color: #842029;
+    background: #f8d7da;
+    border-color: #f5c2c7;
+}

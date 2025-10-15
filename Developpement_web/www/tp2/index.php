@@ -63,11 +63,10 @@
 			// Question 4
 			// On crée un tableau associatif comme vu en java, ville => url
 			$destinations = array(
-				"Toulouse" => "https://metropole.toulouse.fr/",
+				"Toulouse" => "https://www.toulouse.fr/",
 				"Paris"    => "https://www.paris.fr/",
-				"Lyon"     => "https://www.grandlyon.com/",
+				"Lyon"     => "https://www.lyon.fr/",
 				"Bordeaux" => "https://www.bordeaux.fr/",
-				"Rodez"    => "https://www.ville-rodez.fr/",
 				"Marseille"=> "https://www.marseille.fr/"
 			);
 
@@ -76,7 +75,7 @@
 			$url = $destinations[$cle]; // on récupère et associe l'url correspondant à la ville
 
 			// affichage résultat avec un lien blank !
-			echo "Mes prochaines vacances seront à <a href='$url' target='_blank'>$cle</a> !"; // tittle à ajouter TODO
+			echo "Mes prochaines vacances seront à <a href='$url' target='_blank'>$cle</a> !";
 		?>
 
 		<br><br>
@@ -87,17 +86,12 @@
 			<table class="tableau">
 			<tr>
 				<th>X</th> <!-- premiere cellule de la table row, juste un X -->
-
-				<?php
-					for ($j = 1; $j <= 9; $j++): //boucle for pour afficher les entetes de 1 à 9
-						echo"<th>".$j."</th>"; // TODO revoir la modif
-					endfor;
-				?>
-
+				<?php for ($j = 1; $j <= 9; $j++): //boucle for pour afficher les entetes de 1 à 9 ?>
+				<th><?= $j ?></th>
+				<?php endfor; ?>
 			</tr>
 
-			<?php
-				for ($i = 1; $i <= 9; $i++): // boucle externe pr chq ligne du tableau?>
+			<?php for ($i = 1; $i <= 9; $i++): // boucle externe pr chq ligne du tableau?>
 				<tr>
 				<th><?= $i ?></th> <!-- en-tête de ligne -->
 				<?php for ($j = 1; $j <= 9; $j++): // boucle j à l'intérieur pour chaque colonne
