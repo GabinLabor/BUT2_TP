@@ -16,7 +16,6 @@ public class Noeud<T extends Comparable<T>> {
 
     /**
      * Crée un nœud contenant la valeur donnée, sans descendants.
-     *
      * @param valeur valeur du nœud (non null recommandé)
      */
     public Noeud(T valeur) {
@@ -44,18 +43,63 @@ public class Noeud<T extends Comparable<T>> {
     }
 
     /**
-     *
+     * TODO à revoir explications ; avec le compareTo
      * @param aInserer valeur à insérer
      * @return true si l'insertion a été effectuée, false si la valeur existait déjà
      */
     public boolean inserer(T aInserer) {
         int cmp = aInserer.compareTo(this.valeur);
         if (cmp == 0) {
-            return false; // Pas de doublons
+            return false; // on évite  des doublons
         } else if (cmp < 0) {
             if (gauche == null) {
                 gauche = new Noeud<>(aInserer);
                 return true;
+            } else {
+                return gauche.inserer(aInserer);
             }
+        } else {
+            if (droit == null) {
+                droit = new Noeud<>(aInserer);
+                return true;
+            } else {
+                return droit.inserer(aInserer);
+            }
+        }
+    }
 
+    /**
+     * Accesseurs
+     */
+    public T getValeur() {
+        return valeur;
+    }
+
+    public Noeud<T> getGauche() {
+        return gauche;
+    }
+
+    public Noeud<T> getDroit() {
+        return droit;
+    }
+
+    private static final int DECALAGE = 5;
+
+    /**
+     * Méthode qui affiche les valeurs contenues dans l'arbre
+     * débutant au noeud courant
+     */
+    public void afficheArbreNiveau(int niveau) {
+        if (droit != null) {
+            droit.afficheArbreNiveau(niveau + 1);
+        }
+        if (gauche != null) {
+            gauche.afficheArbreNiveau(niveau + 1);
+
+        for (int i = 0; i < niveau * DECALAGE; i++) {
+            System.out.print(" ");
+        }
+        System.out.println(valeur);
+        }
+    }
 }

@@ -160,10 +160,10 @@ public class TestNoeud {
      * @param args argument non utilisé
      */
     public static void main(String[] args) {
-        // testConstructeurSeul();
-        // testEstPresenteSansDescendance();
-        // testInserer();
-        // testInsererEstPresente();
+        testConstructeurSeul();
+        testEstPresenteSansDescendance();
+        testInserer();
+        testInsererEstPresente();
     }
 
 }
