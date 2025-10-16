@@ -1,8 +1,8 @@
 /* Importation de la police Google */
-@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
 
 body{
-	color:#585976;		/* Couleur de la police Gris foncé */
+	color:#585976;		/* Couleur de la police Gris fonc� */
 	background: linear-gradient(#8EB3C8, white);
 	font-family: 'Righteous', cursive; /* Utilisation de la police Righteous */
 }
@@ -18,7 +18,7 @@ body{
 }
 
 .enGras{
-	font-weight: bold;		/* Ecriture en gras pour les intitulés des vignettes */
+	font-weight: bold;		/* Ecriture en gras pour les intitul�s des vignettes */
 }
 
 table {
@@ -26,11 +26,11 @@ table {
 }
 
 td {
-	padding:4px;			/* Marge intérieure pour les cellules du tableau */
+	padding:4px;			/* Marge int�rieure pour les cellules du tableau */
 }
 
 th {
-	text-align:center;		/* Alignement texte centré dans les entetes des tables */
+	text-align:center;		/* Alignement texte centr� dans les entetes des tables */
 }
 
 

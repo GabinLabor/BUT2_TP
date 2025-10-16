@@ -1,0 +1,74 @@
+body {
+    background: linear-gradient(white, #00B3EC);
+    background-attachment: fixed;
+}
+
+h1, h2 {
+    font-weight : bold;
+}
+
+/*grossis les images quand a souris est passée par dessus*/
+img:hover {
+    transform:scale(1.2);
+}
+
+#logoIut {
+    width : 100px;
+}
+
+/*grossis les images quand a souris est passée par dessus*/
+.header {
+    background-color : #00B3EC;
+    margin: 2px;
+    padding: 5px;
+}
+
+/*pour la majorité du texte*/
+.text {
+    text-align : center;
+    color:#3900EC;
+    font-weight : bold;
+}
+
+/*pour les annontations*/
+.texteNoir {
+    text-align : center;
+    color: black;
+    font-weight : bold;
+}
+
+.texteRouge {
+    color: red;
+}
+
+.texteVert {
+    color: green;
+}
+
+/*à ajouter aux boutons bootstrap pour les normaliser*/
+.button {
+    width:220px;
+}
+
+.frame {
+    background: linear-gradient(white, #00B3EC);
+    margin: 2px;
+    padding: 5px;
+}
+
+.table {
+    background: linear-gradient(white, #00B3EC);
+    border-collapse: collapse;
+    margin: 2px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+/* Retirer les bordures verticales des cellules du tableau */
+.table th, .table td {
+    border-right: none;  /* Enlever la bordure droite */
+    border-left: none;   /* Enlever la bordure gauche */
+    padding: 10px;
+    text-align: center;
+    background-color: transparent;
+}
