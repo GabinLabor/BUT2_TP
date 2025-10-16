@@ -1,0 +1,115 @@
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: linear-gradient(to bottom, white, #00B3EC);
+    font-weight: bold;
+    font-size: 1.3em;
+    padding: 0;
+}
+
+/* Cadres */
+
+.header {
+	background-color: #00B3EC;
+    margin: 2px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.bordure {
+    background: linear-gradient(to top, #00B3EC, white);
+    margin: 2px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+table, tr {
+    text-align: center;
+    border: 2px solid gray;
+    font-size: 18px;
+}
+
+/* Textes généraux */
+.text {
+    text-align: center;
+}
+
+.gain {
+    color: green;
+}
+
+.perte {
+    color: red;
+}
+
+h1 {
+    color: #3900EC;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+h2 {
+    color: #3900EC;
+    font-size: 1.8em;
+    text-align: center;
+}
+
+h3 {
+    color: #3900EC;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* Logo */
+#logoIUTBank {
+    display: block;
+    margin: 0 auto;
+    padding: 5px;
+    height: 120px;
+    border-radius: 5px;
+}
+
+#logoIUT {
+    width: 100px;
+	display: block;
+    margin: 0 auto;
+}
+
+#logoCompteCourant, #logoLivretA, #logoLDD {
+    width: 150px;
+	display: block;
+    margin: 0 auto;
+}
+
+/* Boutons */
+
+.btn-primary {
+    font-weight: bold;
+    background-color: #3900EC;
+    border: none;
+}
+
+.btn-connexion {
+	width: 100%;
+}
+
+/* Images : grossissement au survol */
+img {
+    transition: transform 0.3s ease;
+}
+img:hover {
+    transform: scale(1.2);
+}
